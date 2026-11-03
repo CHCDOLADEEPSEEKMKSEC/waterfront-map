@@ -54,7 +54,7 @@ fetch('poi.json').then(r=>r.json()).then(D=>{
   map=L.map('map',{zoomControl:true}).setView([56.4620,-2.9500],15);
   const sat=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Imagery © Esri, Maxar, Earthstar Geographics'}).addTo(map);
   const osm=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'});
-  L.control.layers({'Satellite':sat,'Street':osm},{collapsed:false}).addTo(map);
+  L.control.layers({'Satellite':sat,'Street':osm}, null, {collapsed:false}).addTo(map);
   const leg=L.control({position:'bottomright'});
   leg.onAdd=()=>{const d=L.DomUtil.create('div','legend');d.innerHTML='<b>CATEGORY</b><br>'+Object.entries(CATS).map(([k,c])=>`<span class="dot" style="background:${c}"></span>${k}`).join('<br>');return d;};
   leg.addTo(map);
