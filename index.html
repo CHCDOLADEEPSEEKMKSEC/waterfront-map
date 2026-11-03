@@ -49,7 +49,7 @@ a{color:var(--gold)}
 const CATS={site:'#e8b44a',occupier:'#5fd39a',works:'#f28f3b',asset:'#8f6bef',history:'#6bc3ff',jurisdiction:'#e8506a',title:'#ffffff'};
 const GRADE={1:'b1',2:'b2',3:'b3',4:'b4',5:'b5'};
 let all=[],map,layers={},active=new Set(Object.keys(CATS));
-fetch('poi.json').then(r=>r.json()).then(D=>{
+fetch('poi.json?v='+Date.now()).then(r=>r.json()).then(D=>{
   all=D.pois;
   map=L.map('map',{zoomControl:true}).setView([56.4620,-2.9500],15);
   const sat=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Imagery © Esri, Maxar, Earthstar Geographics'}).addTo(map);
