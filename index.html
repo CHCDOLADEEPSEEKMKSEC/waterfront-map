@@ -1,0 +1,90 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>#OPWFM — Waterfront Avenue, Dundee · field map</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{--bg:#0b0714;--panel:#130d22;--line:#2a2140;--ink:#f2eefa;--dim:#a99cc4;--gold:#e8b44a;--purple:#8f6bef;--red:#e8506a;--green:#5fd39a}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font:14px/1.5 system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);display:flex;flex-direction:column}
+header{padding:10px 16px;border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+h1{margin:0;font-size:15px;letter-spacing:.10em;color:var(--gold);font-weight:700}
+.sub{color:var(--dim);font-size:12px}
+.wrap{flex:1;display:flex;min-height:0}
+#side{width:340px;border-right:1px solid var(--line);background:var(--panel);overflow:auto;padding:12px}
+#map{flex:1}
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.chip{border:1px solid var(--line);background:#1a1230;color:var(--dim);padding:4px 9px;border-radius:999px;font-size:11px;cursor:pointer}
+.chip.on{color:#0b0714;background:var(--gold);border-color:var(--gold);font-weight:700}
+.card{border:1px solid var(--line);border-radius:10px;padding:9px 10px;margin-bottom:8px;cursor:pointer;background:#171029}
+.card:hover{border-color:var(--gold)}
+.card .t{font-weight:600;font-size:13px}
+.card .m{color:var(--dim);font-size:11px;margin-top:2px}
+.badge{display:inline-block;font-size:10px;padding:1px 6px;border-radius:6px;margin-left:6px;vertical-align:middle}
+.b2{background:#1f4d33;color:#9ff0c4}.b3{background:#4d3a1f;color:#ffd39f}.b4{background:#3a2a5d;color:#cfb6ff}.b5{background:#4d1f2a;color:#ffb3c4}.b1{background:#1f3d4d;color:#a9dbff}
+.pend{color:var(--red);font-size:10px;letter-spacing:.06em}
+.leaflet-popup-content{font:13px/1.5 system-ui,sans-serif;min-width:230px}
+.leaflet-popup-content b{color:#0b0714}
+.ph{margin:8px 0 4px;border:1px dashed #999;border-radius:8px;padding:18px 8px;text-align:center;color:#666;font-size:11px;background:#f6f4ef}
+.legend{background:#130d22e6;border:1px solid var(--line);border-radius:10px;padding:8px 10px;color:var(--ink);font-size:11px;line-height:1.7}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}
+footer{padding:6px 16px;border-top:1px solid var(--line);color:var(--dim);font-size:11px}
+a{color:var(--gold)}
+@media(max-width:760px){#side{width:auto;max-height:38vh}#map{min-height:52vh}.wrap{flex-direction:column}}
+</style></head><body>
+<header>
+ <h1>#OPWFM · WATERFRONT AVENUE</h1>
+ <span class="sub">ANG36283 · satellite + street base · 14 points of interest · photos land 4 Nov</span>
+</header>
+<div class="wrap">
+ <aside id="side">
+  <div class="filters" id="filters"></div>
+  <div id="list"></div>
+ </aside>
+ <div id="map"></div>
+</div>
+<footer>Coordinates approximate until the 4 Nov GPS/What3Words pass · grades: <b>1 documented</b> · <b>2 observation</b> · <b>3 secondary</b> · <b>4 field-log</b> · <b>5 interpretation</b> · public-ground photography only</footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const CATS={site:'#e8b44a',occupier:'#5fd39a',works:'#f28f3b',asset:'#8f6bef',history:'#6bc3ff',jurisdiction:'#e8506a',title:'#ffffff'};
+const GRADE={1:'b1',2:'b2',3:'b3',4:'b4',5:'b5'};
+let all=[],map,layers={},active=new Set(Object.keys(CATS));
+fetch('poi.json').then(r=>r.json()).then(D=>{
+  all=D.pois;
+  map=L.map('map',{zoomControl:true}).setView([56.4620,-2.9500],15);
+  const sat=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Imagery © Esri, Maxar, Earthstar Geographics'}).addTo(map);
+  const osm=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'});
+  L.control.layers({'Satellite':sat,'Street':osm},{collapsed:false}).addTo(map);
+  const leg=L.control({position:'bottomright'});
+  leg.onAdd=()=>{const d=L.DomUtil.create('div','legend');d.innerHTML='<b>CATEGORY</b><br>'+Object.entries(CATS).map(([k,c])=>`<span class="dot" style="background:${c}"></span>${k}`).join('<br>');return d;};
+  leg.addTo(map);
+  renderFilters(); render();
+});
+function renderFilters(){
+  const f=document.getElementById('filters');
+  f.innerHTML=Object.keys(CATS).map(c=>`<span class="chip ${active.has(c)?'on':''}" data-c="${c}">${c}</span>`).join('');
+  f.querySelectorAll('.chip').forEach(ch=>ch.onclick=()=>{const c=ch.dataset.c;active.has(c)?active.delete(c):active.add(c);renderFilters();render();});
+}
+function render(){
+  Object.values(layers).forEach(g=>map.removeLayer(g)); layers={};
+  const list=document.getElementById('list'); list.innerHTML='';
+  all.filter(p=>active.has(p.cat)).forEach(p=>{
+    const g=L.layerGroup().addTo(map);
+    const m=L.circleMarker([p.lat,p.lon],{radius:10,color:'#0b0714',weight:2,fillColor:CATS[p.cat],fillOpacity:.95}).addTo(map);
+    m.bindPopup(popup(p));
+    layers[p.id]=g;
+    const card=document.createElement('div'); card.className='card';
+    card.innerHTML=`<div class="t">${p.name}<span class="badge ${GRADE[p.grade]||'b3'}">g${p.grade}</span></div>
+      <div class="m">${p.cat}${p.grid?' · '+p.grid:''}</div>
+      <div class="pend">${p.status==='photo-pending'?'▢ PHOTO PENDING':'✓ '+p.status}</div>`;
+    card.onclick=()=>{map.setView([p.lat,p.lon],18);m.openPopup();};
+    list.appendChild(card);
+  });
+}
+function popup(p){
+  return `<b>${p.name}</b><br><span style="color:#555">${p.cat} · grade ${p.grade}${p.grid?' · '+p.grid:''}</span>
+   <p style="margin:6px 0">${p.note}</p>
+   <div class="ph">${p.status==='photo-pending'?'PHOTO PENDING<br>shot 4 Nov — wide + detail':'DOCUMENTED — see dossier'}</div>
+   <small>${p.lat.toFixed(6)}, ${p.lon.toFixed(6)} · gradings are about the CLAIM, not the place</small>`;
+}
+</script></body></html>

@@ -1,0 +1,21 @@
+{
+ "site": "#OPWFM — Waterfront Avenue, Dundee",
+ "title": "ANG36283",
+ "note": "Coordinates are APPROXIMATE (grid refs from the 13 Jul 2026 walk, converted with pyproj; site-linked POIs estimated). The 4 Nov photo run re-fixes each one with camera GPS + What3Words. Grade: 2=observation 3=secondary 4=field-log detail 5=interpretation.",
+ "pois": [
+  {"id":"s10","name":"Site 10","cat":"site","grade":3,"lat":56.4652,"lon":-2.9612,"grid":"NO 40450 30120","status":"photo-pending","note":"Wide from street · boundary/fence · signage · ground condition. 3 Nov walk: VACANT."},
+  {"id":"s11","name":"Site 11","cat":"site","grade":3,"lat":56.4648,"lon":-2.9565,"grid":"NO 40600 30350","status":"photo-pending","note":"Wide + detail · compare with Site 10. 3 Nov walk: VACANT."},
+  {"id":"s12","name":"Site 12 (containers)","cat":"site","grade":3,"lat":56.4638,"lon":-2.9480,"grid":"NO 41800 30500","status":"photo-pending","note":"Containers, access, tenant branding, gates. 3 Nov walk: SUB-HOLDERS present."},
+  {"id":"bld6","name":"Building 6 — solicitors","cat":"occupier","grade":3,"lat":56.4622,"lon":-2.9425,"grid":"NO 42400 30550","status":"photo-pending","note":"Entrance, signage/plate, any name boards. 3 Nov walk: Thirteen's solicitors in Building 6."},
+  {"id":"bridge","name":"Bridge works","cat":"works","grade":3,"lat":56.4614,"lon":-2.9390,"grid":"","status":"photo-pending","note":"Works area, hoardings, contractor boards (who authorised / what cost)."},
+  {"id":"cycle","name":"Cycle place / bike facility","cat":"asset","grade":3,"lat":56.4635,"lon":-2.9510,"grid":"","status":"photo-pending","note":"Whole structure + detail."},
+  {"id":"covers","name":"Heavy access covers","cat":"asset","grade":4,"lat":56.459448,"lon":-2.967905,"grid":"NO 40450 30120","status":"photo-pending","note":"Each distinct type: wide + close-up WITH scale reference. Castle St junction → promenade."},
+  {"id":"rail","name":"Rail bed / arch (Waters Edge)","cat":"history","grade":4,"lat":56.464076,"lon":-2.926638,"grid":"NO 43000 30600","status":"photo-pending","note":"Cobbled track bed, arch, patched road slab."},
+  {"id":"sheds","name":"Sheds 26–27 / bonded warehouse","cat":"asset","grade":3,"lat":56.4635,"lon":-2.9355,"grid":"","status":"photo-pending","note":"Facades, patched slab outside, access points."},
+  {"id":"tank","name":"Tank farm / process plant","cat":"works","grade":5,"lat":56.4655,"lon":-2.9200,"grid":"","status":"photo-pending","note":"PUBLIC VANTAGE ONLY — wide, silhouettes, signage. Interpretation grade."},
+  {"id":"va","name":"V&A / Creative Scotland perimeter","cat":"jurisdiction","grade":3,"lat":56.4572,"lon":-2.9650,"grid":"","status":"photo-pending","note":"Boundary between public realm and leased land — the jurisdiction question."},
+  {"id":"discovery","name":"Discovery Point","cat":"jurisdiction","grade":2,"lat":56.4568,"lon":-2.9722,"grid":"","status":"photo-pending","note":"Public reference point; established attraction next to the title."},
+  {"id":"cityquay","name":"City Quay","cat":"site","grade":2,"lat":56.4615,"lon":-2.9585,"grid":"","status":"photo-pending","note":"Comparative: developed waterfront residential vs void sites."},
+  {"id":"ddl","name":"Design Dundee Ltd (SC370598) — 99-yr £1 lease","cat":"title","grade":1,"lat":56.4630,"lon":-2.9520,"grid":"","status":"documented","note":"PROVEN: RoS title ANG36283 lease ANG80392, 2 Jul 2018 → 1 Jul 2117, £1 p.a. Plot 3 area not stated on the title sheet."}
+ ]
+}
