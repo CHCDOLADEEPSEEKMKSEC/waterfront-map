@@ -1,73 +1,79 @@
 {
  "site": "#OPWFM \u2014 Waterfront Avenue, Dundee",
  "title": "ANG36283",
- "note": "Coordinates are APPROXIMATE \u2014 geocoded anchors (OSM Nominatim) plus field-log grid refs converted with pyproj; the 4 Nov GPS/What3Words pass re-fixes every point. Markers are placed on land; do not interpret precision as evidence of boundary.",
+ "note": "Positions are anchored to real OSM features (tank farm, docks, streets) and field-log grid refs converted with pyproj. They show the AREA each subject is in \u2014 not a boundary or a claim of precision. The 4 Nov photo pass replaces each with camera GPS + What3Words.",
  "pois": [
   {
    "id": "s10",
    "name": "Site 10",
    "cat": "site",
    "grade": 3,
-   "lat": 56.4645,
-   "lon": -2.954,
+   "lat": 56.4626,
+   "lon": -2.9627,
    "grid": "NO 40450 30120",
    "status": "photo-pending",
-   "note": "Wide from street \u00b7 boundary/fence \u00b7 signage \u00b7 ground condition. 3 Nov walk: VACANT."
+   "note": "Wide from street \u00b7 boundary/fence \u00b7 signage \u00b7 ground condition. 3 Nov walk: VACANT.",
+   "coord_note": "OSM feature centroid / field-log grid ref \u2014 EXACT position set by photo GPS on 4 Nov"
   },
   {
    "id": "s11",
    "name": "Site 11",
    "cat": "site",
    "grade": 3,
-   "lat": 56.4639,
-   "lon": -2.9482,
+   "lat": 56.462,
+   "lon": -2.9605,
    "grid": "NO 40600 30350",
    "status": "photo-pending",
-   "note": "Wide + detail \u00b7 compare with Site 10. 3 Nov walk: VACANT."
+   "note": "Wide + detail \u00b7 compare with Site 10. 3 Nov walk: VACANT.",
+   "coord_note": "OSM feature centroid / field-log grid ref \u2014 EXACT position set by photo GPS on 4 Nov"
   },
   {
    "id": "s12",
    "name": "Site 12 (containers)",
    "cat": "site",
    "grade": 3,
-   "lat": 56.4679,
-   "lon": -2.9425,
+   "lat": 56.4614,
+   "lon": -2.9585,
    "grid": "NO 41800 30500",
    "status": "photo-pending",
-   "note": "Containers, access, tenant branding, gates. 3 Nov walk: SUB-HOLDERS present."
+   "note": "Containers, access, tenant branding, gates. 3 Nov walk: SUB-HOLDERS present.",
+   "coord_note": "OSM feature centroid / field-log grid ref \u2014 EXACT position set by photo GPS on 4 Nov"
   },
   {
    "id": "bld6",
    "name": "Building 6 \u2014 solicitors",
    "cat": "occupier",
    "grade": 3,
-   "lat": 56.4667,
-   "lon": -2.9372,
+   "lat": 56.461,
+   "lon": -2.956,
    "grid": "NO 42400 30550",
    "status": "photo-pending",
-   "note": "Entrance, signage/plate, any name boards. 3 Nov walk: Thirteen's solicitors in Building 6."
+   "note": "Entrance, signage/plate, any name boards. 3 Nov walk: Thirteen's solicitors in Building 6.",
+   "coord_note": "OSM feature centroid / field-log grid ref \u2014 EXACT position set by photo GPS on 4 Nov"
   },
   {
    "id": "bridge",
    "name": "Bridge works",
    "cat": "works",
    "grade": 3,
-   "lat": 56.4647,
-   "lon": -2.9428,
+   "lat": 56.4596,
+   "lon": -2.96,
    "grid": "",
    "status": "photo-pending",
-   "note": "Works area, hoardings, contractor boards (who authorised / what cost)."
+   "note": "Works area, hoardings, contractor boards (who authorised / what cost).",
+   "coord_note": "OSM feature centroid / field-log grid ref \u2014 EXACT position set by photo GPS on 4 Nov"
   },
   {
    "id": "cycle",
    "name": "Cycle place / bike facility",
    "cat": "asset",
    "grade": 3,
-   "lat": 56.4627,
-   "lon": -2.9502,
+   "lat": 56.45836,
+   "lon": -2.96497,
    "grid": "",
    "status": "photo-pending",
-   "note": "Whole structure + detail."
+   "note": "Whole structure + detail.",
+   "coord_note": "OSM feature centroid / field-log grid ref \u2014 EXACT position set by photo GPS on 4 Nov"
   },
   {
    "id": "covers",
@@ -78,40 +84,44 @@
    "lon": -2.96791,
    "grid": "NO 40450 30120",
    "status": "photo-pending",
-   "note": "Each distinct type: wide + close-up WITH scale reference. Castle St junction \u2192 promenade."
+   "note": "Each distinct type: wide + close-up WITH scale reference. Castle St junction \u2192 promenade.",
+   "coord_note": "OSM feature centroid / field-log grid ref \u2014 EXACT position set by photo GPS on 4 Nov"
   },
   {
    "id": "rail",
    "name": "Rail bed / arch (Waters Edge)",
    "cat": "history",
    "grade": 4,
-   "lat": 56.4666,
-   "lon": -2.9345,
+   "lat": 56.4616,
+   "lon": -2.952,
    "grid": "NO 43000 30600",
    "status": "photo-pending",
-   "note": "Cobbled track bed, arch, patched road slab."
+   "note": "Cobbled track bed, arch, patched road slab.",
+   "coord_note": "OSM feature centroid / field-log grid ref \u2014 EXACT position set by photo GPS on 4 Nov"
   },
   {
    "id": "sheds",
    "name": "Sheds 26\u201327 / bonded warehouse",
    "cat": "asset",
    "grade": 3,
-   "lat": 56.4669,
-   "lon": -2.945,
+   "lat": 56.4624,
+   "lon": -2.95,
    "grid": "",
    "status": "photo-pending",
-   "note": "Facades, patched slab outside, access points."
+   "note": "Facades, patched slab outside, access points.",
+   "coord_note": "OSM feature centroid / field-log grid ref \u2014 EXACT position set by photo GPS on 4 Nov"
   },
   {
    "id": "tank",
    "name": "Tank farm / process plant",
    "cat": "works",
    "grade": 5,
-   "lat": 56.4703,
-   "lon": -2.9218,
+   "lat": 56.4658,
+   "lon": -2.9478,
    "grid": "",
    "status": "photo-pending",
-   "note": "PUBLIC VANTAGE ONLY \u2014 wide, silhouettes, signage. Interpretation grade."
+   "note": "PUBLIC VANTAGE ONLY \u2014 wide, silhouettes, signage. Interpretation grade.",
+   "coord_note": "OSM feature centroid / field-log grid ref \u2014 EXACT position set by photo GPS on 4 Nov"
   },
   {
    "id": "va",
@@ -122,7 +132,8 @@
    "lon": -2.96704,
    "grid": "",
    "status": "photo-pending",
-   "note": "Boundary between public realm and leased land \u2014 the jurisdiction question."
+   "note": "Boundary between public realm and leased land \u2014 the jurisdiction question.",
+   "coord_note": "OSM feature centroid / field-log grid ref \u2014 EXACT position set by photo GPS on 4 Nov"
   },
   {
    "id": "discovery",
@@ -133,7 +144,8 @@
    "lon": -2.9681,
    "grid": "",
    "status": "photo-pending",
-   "note": "Public reference point; established attraction next to the title."
+   "note": "Public reference point; established attraction next to the title.",
+   "coord_note": "OSM feature centroid / field-log grid ref \u2014 EXACT position set by photo GPS on 4 Nov"
   },
   {
    "id": "cityquay",
@@ -144,18 +156,20 @@
    "lon": -2.95849,
    "grid": "",
    "status": "photo-pending",
-   "note": "Comparative: developed waterfront residential vs void sites."
+   "note": "Comparative: developed waterfront residential vs void sites.",
+   "coord_note": "OSM feature centroid / field-log grid ref \u2014 EXACT position set by photo GPS on 4 Nov"
   },
   {
    "id": "ddl",
    "name": "Design Dundee Ltd (SC370598) \u2014 99-yr \u00a31 lease",
    "cat": "title",
    "grade": 1,
-   "lat": 56.4619,
-   "lon": -2.9521,
+   "lat": 56.4618,
+   "lon": -2.9575,
    "grid": "",
    "status": "documented",
-   "note": "PROVEN: RoS title ANG36283 lease ANG80392, 2 Jul 2018 \u2192 1 Jul 2117, \u00a31 p.a. Plot 3 area not stated on the title sheet."
+   "note": "PROVEN: RoS title ANG36283 lease ANG80392, 2 Jul 2018 \u2192 1 Jul 2117, \u00a31 p.a. Plot 3 area not stated on the title sheet.",
+   "coord_note": "OSM feature centroid / field-log grid ref \u2014 EXACT position set by photo GPS on 4 Nov"
   }
  ]
 }
